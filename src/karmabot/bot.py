@@ -6,10 +6,10 @@ from typing import Callable, Dict
 from slack_bolt import App
 
 # Commands
-from karmabot.commands.add import add_command
-from karmabot.commands.age import pybites_age
+#from karmabot.commands.add import add_command # remove command as this is not a fork to contribute upstream repo
+from karmabot.commands.age import meetup_age
 from karmabot.commands.control import general_channel_id, join_public_channels, your_id
-from karmabot.commands.doc import doc_command
+# from karmabot.commands.doc import doc_command  remove from list too
 from karmabot.commands.feed import get_pybites_last_entries
 from karmabot.commands.joke import joke
 from karmabot.commands.note import note
@@ -40,8 +40,8 @@ ADMIN_BOT_COMMANDS = {
     "general_channel_id": general_channel_id,
 }
 CHANNEL_BOT_COMMANDS = {
-    "add": add_command,
-    "age": pybites_age,
+    # "add": add_command,
+    "age": meetup_age,
     "joke": joke,
     "note": note,
     "tip": get_random_tip,
@@ -49,7 +49,7 @@ CHANNEL_BOT_COMMANDS = {
     "zen": import_this,
 }
 DM_BOT_COMMANDS = {
-    "doc": doc_command,
+    # "doc": doc_command,
     "feed": get_pybites_last_entries,
     "joke": joke,
     "note": note,

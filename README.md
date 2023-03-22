@@ -10,7 +10,7 @@ Karmabot's main features is the management of Karma within the slack community s
 
 ![karma example](https://www.pogross.de/uploads/karmabot.png)
 
-[Demo Youtube Video](https://www.youtube.com/watch?v=Yx9qYl6lmzM&amp;t=2s)
+[Demo Youtube Video](https://www.youtube.com/watch?v=Yx9qYl6lmzM&t=2s)
 
 Additional commands / features are:
 
@@ -22,6 +22,14 @@ Additional commands / features are:
 ## Installation
 
 `pip install karmabot`
+
+## Installation from source
+
+`git clone git@github.com:pythonadelaide/karmabot.git`
+
+move to directory were pyproject.toml is then
+
+`pip install .`
 
 ## Basic Usage
 
@@ -59,11 +67,11 @@ KARMABOT_TEST_MODE=
 ```
 
 KARMABOT_SLACK_BOT_TOKEN
-:   The [SLACK_BOT_TOKEN](https://slack.dev/bolt-python/tutorial/getting-started) for your bot. You will find it under **OAuth & Permission 🠊 Bot User OAuth Access Token** in your [app](https://api.slack.com/apps/). The token starts with `xoxb-`.
+: The [SLACK_BOT_TOKEN](https://slack.dev/bolt-python/tutorial/getting-started) for your bot. You will find it under **OAuth & Permission 🠊 Bot User OAuth Access Token** in your [app](https://api.slack.com/apps/). The token starts with `xoxb-`.
 
 KARMABOT_SLACK_APP_TOKEN
 : The SLACK_APP_TOKEN used for running the bot in [Socket Mode](https://slack.dev/bolt-python/concepts#socket-mode). You will find it under **Basic Information 🠊 App-Level Tokens** in your [app](https://api.slack.com/apps/).
-  The token starts with `xapp-`.
+The token starts with `xapp-`.
 
 KARMABOT_SLACK_USER
 : The bot's user id. Initially, you can fill in a placeholder. Once you've run your own Karmabot for the first time, you can ask it as admin in private chat via `@Karmabot your_id`. This will return a value starting with `U`, e.g., `U0123XYZ`. Replace your placeholder with this value.
@@ -75,11 +83,11 @@ KARMABOT_ADMINS
 : The [slack user ids](https://api.slack.com/methods/users.identity) of the users that should have admin command access separated by commas.
 
 KARMABOT_DATABASE_URL
-  : The database url which should be compatible with SqlAlchemy. For the provided docker file use `postgresql://user42:pw42@localhost:5432/karmabot`.
-  :heavy_exclamation_mark: To start the provided Docker-based Postgres server, be sure you have Docker Compose [installed](https://docs.docker.com/compose/install/) and run `docker-compose up -d` from the karmabot directory.
+: The database url which should be compatible with SqlAlchemy. For the provided docker file use `postgresql://user42:pw42@localhost:5432/karmabot`.
+:heavy_exclamation_mark: To start the provided Docker-based Postgres server, be sure you have Docker Compose [installed](https://docs.docker.com/compose/install/) and run `docker-compose up -d` from the karmabot directory.
 
 KARMABOT_TEST_MODE=
-  : Determines if the code is run in test mode. User `KARMABOT_TEST_MODE=true` to enable testing mode. Everything else will default to `false`. This setting has to be provided as `true`, if you want run tests without a valid `KARMABOT_SLACK_BOT_TOKEN`. Otherwise, you will receive an exceptions with `slack_bolt.error.BoltError: token is invalid ...`.
+: Determines if the code is run in test mode. User `KARMABOT_TEST_MODE=true` to enable testing mode. Everything else will default to `false`. This setting has to be provided as `true`, if you want run tests without a valid `KARMABOT_SLACK_BOT_TOKEN`. Otherwise, you will receive an exceptions with `slack_bolt.error.BoltError: token is invalid ...`.
 
 If you do not want to use a file you have to provide environment variables with the above names. If no file is present we default to environment variables.
 
@@ -110,22 +118,6 @@ Go to your [slack app](https://api.slack.com/apps/) and click on **Add features 
     - im:write
     - users.profile:read
     - users:read
-
-## Development pattern for contributors
-
-We use [poetry](https://github.com/python-poetry/poetry) and `pyproject.toml` for managing packages, dependencies and some settings.
-
-### Setup virtual environment for development
-
-You should follow the [instructions](https://github.com/python-poetry/poetry) to get poetry up and running for your system. We recommend to use a UNIX-based development system (Linux, Mac, WSL). After setting up poetry you can use `poetry install` within the project folder to install all dependencies.
-
-The poetry virtual environment should be available in the the project folder as `.venv` folder as specified in `poetry.toml`. This helps with `.venv` detection in IDEs.
-
-#### Conda users
-
-If you use the Anaconda Python distribution (strongly recommended for Windows users) and `conda create` for your virtual environments, then you will not be able to use the `.venv` environment created by poetry because it is not a conda environment. If you want to use `poetry` disable poetry's behavior of creating a new virtual environment with the following command: `poetry config virtualenvs.create false`. You can add `--local` if you don't want to change this setting globally but only for the current project. See the [poetry configuration docs](https://python-poetry.org/docs/configuration/) for more details.
-
-Now, when you run `poetry install`, poetry will install all dependencies to your conda environment. You can verify this by running `pip freeze` after `poetry install`.
 
 ### Testing and linting
 

@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "karmabot"
-version = "2.0.1"
-description = "PyBites Karmabot - A Python based Slack Chatbot for Community interaction"
-homepage = "https://github.com/PyBites-Open-Source/karmabot"
+version = "0.0.1"
+description = "Adelaide Python Karmabot - a fork from Pybites Python Slack Chatbot for Community interaction"
+homepage = "https://github.com/pythonadelaide/karmabot"
 keywords = ["karmabot"]
 authors = ["PyBites <info@pybit.es>", "Patrick-Oliver Groß <mail@pogross.de>"]
 maintainers = ["Patrick-Oliver Groß <mail@pogross.de>"]
 readme = "README.md"
-repository = "https://github.com/PyBites-Open-Source/karmabot"
+repository = "https://github.com/pythonadelaide/karmabot"
 license = "MIT"
 classifiers = [
     "License :: OSI Approved :: MIT License",

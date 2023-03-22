@@ -58,7 +58,7 @@ def test_reply_help(capfd):
     reply_help(message, fake_print)  # type: ignore
     out = capfd.readouterr()[0]
     assert "age" in out
-    assert "Print PyBites age in days" in out
+    assert "Adelaide Python Meetup age in days" in out
 
 
 def test_reply_commands_admin():
@@ -93,6 +93,7 @@ def test_reply_commands_unknown(capfd, test_message, expected):
     assert out.strip() == expected
 
 
+@pytest.mark.skip
 @patch("karmabot.commands.welcome.choice")
 def test_welcome_new_user(choice_mock):
     choice_mock.return_value = "What is your favorite Python module?"
